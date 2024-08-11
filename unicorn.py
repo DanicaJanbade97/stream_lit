@@ -135,12 +135,6 @@ def main():
     shopping_recommendations = personalized_shopping()
     st.write("Shopping Recommendations:", shopping_recommendations)
 
-    # Fashion History and Education
-    st.header("Fashion History and Education")
-    history_content = fashion_history()
-    for topic in history_content:
-        st.subheader(topic["Topic"])
-        st.write(topic["Description"])
 
     # Customizable Notifications and Alerts
     st.header("Notifications and Alerts")
