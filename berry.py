@@ -5,7 +5,7 @@ from sklearn.linear_model import LinearRegression
 
 # Dummy model for route optimization
 def dummy_route_optimization(start_location, end_location, weather_data):
-    # This is a placeholder function. Replace with real model prediction logic.
+    # Placeholder function. Replace with actual model prediction logic.
     return f"Optimized route from {start_location} to {end_location} considering weather: {weather_data}"
 
 # Dummy time series model for inventory demand forecasting
@@ -27,7 +27,7 @@ def track_cargo(cargo_id):
     }
     return cargo_status
 
-# Dummy data
+# Dummy inventory data
 inventory_data = {
     'items': [
         {'item_id': 1, 'name': 'Item 1', 'quantity': 100, 'historical_demand': [10, 15, 12, 20, 18]},
