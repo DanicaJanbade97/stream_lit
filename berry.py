@@ -3,10 +3,10 @@ import pandas as pd
 import numpy as np
 import requests
 from sklearn.ensemble import RandomForestRegressor
-import tensorflow as tf
 
 # Dummy AI model for route optimization (replace with your trained model)
 model = RandomForestRegressor()
+
 # Dummy inventory data (replace with real data or API integration)
 inventory_data = {
     'items': [
@@ -16,16 +16,10 @@ inventory_data = {
 }
 
 def optimize_route(start_location, end_location):
-    # Call to Google Maps API for route data (replace with your API key)
-    google_maps_url = f'https://maps.googleapis.com/maps/api/directions/json?origin={start_location}&destination={end_location}&key=YOUR_GOOGLE_MAPS_API_KEY'
-    response = requests.get(google_maps_url)
-    directions = response.json()
-
-    # Dummy route optimization logic (replace with real model prediction)
+    # Placeholder for route optimization logic
     # Extract features from directions here
     features = np.array([[0]])  # Placeholder
     optimized_route = model.predict(features)
-
     return optimized_route
 
 def track_cargo(cargo_id):
