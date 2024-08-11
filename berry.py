@@ -1,17 +1,15 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
-import requests
 from sklearn.linear_model import LinearRegression
-import datetime
 
-# Dummy model for route optimization (for demonstration purposes)
+# Dummy model for route optimization
 def dummy_route_optimization(start_location, end_location, weather_data):
     # This is a placeholder function. Replace with real model prediction logic.
     return f"Optimized route from {start_location} to {end_location} considering weather: {weather_data}"
 
 # Dummy time series model for inventory demand forecasting
-def forecast_demand(item_id, historical_data):
+def forecast_demand(historical_data):
     model = LinearRegression()
     X = np.arange(len(historical_data)).reshape(-1, 1)
     y = np.array(historical_data)
@@ -22,6 +20,7 @@ def forecast_demand(item_id, historical_data):
 
 # Dummy cargo tracking data
 def track_cargo(cargo_id):
+    # Simulated cargo status
     cargo_status = {
         'status': 'In Transit',
         'location': 'Current GPS Coordinates'
@@ -66,7 +65,7 @@ def main():
     start_location = st.text_input("Start Location")
     end_location = st.text_input("End Location")
     
-    # Fetch weather data (dummy data used here)
+    # Simulated weather data
     weather_data = "Clear skies"  # Replace with real weather data fetch
     if st.button("Optimize Route"):
         if start_location and end_location:
@@ -91,8 +90,9 @@ def main():
     selected_item = st.selectbox("Select Item for Demand Forecast", [item['name'] for item in inventory_data['items']])
     
     item_data = next(item for item in inventory_data['items'] if item['name'] == selected_item)
-    forecast = forecast_demand(item_data['item_id'], item_data['historical_demand'])
-    st.write(f"Forecasted Demand for {selected_item}:", forecast)
+    forecast = forecast_demand(item_data['historical_demand'])
+    st.write(f"Forecasted Demand for {selected_item}:")
+    st.line_chart(forecast)  # Display forecast using line chart
 
     # Driver and Fleet Management
     st.header("Driver and Fleet Management")
