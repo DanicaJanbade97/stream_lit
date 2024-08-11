@@ -1,11 +1,10 @@
 import streamlit as st
 import pandas as pd
 from PIL import Image
-import numpy as np
-import matplotlib.pyplot as plt
-from streamlit.components.v1 import html
 
-# Function to simulate AI-powered personal styling
+# Dummy functions to simulate advanced features
+
+# AI-Powered Personal Styling
 def recommend_outfits(user_profile):
     # Dummy recommendation logic
     return ["Stylish Jacket", "Comfortable Jeans", "Elegant Shoes"]
