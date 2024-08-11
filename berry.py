@@ -2,12 +2,13 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import requests
-from sklearn.ensemble import RandomForestRegressor
 
-# Dummy AI model for route optimization (replace with your trained model)
-model = RandomForestRegressor()
+# Dummy model for route optimization (for demonstration purposes)
+def dummy_route_optimization(start_location, end_location):
+    # This is a placeholder function. Replace with real model prediction logic.
+    return f"Optimized route from {start_location} to {end_location}"
 
-# Dummy inventory data (replace with real data or API integration)
+# Dummy inventory data (for demonstration purposes)
 inventory_data = {
     'items': [
         {'item_id': 1, 'name': 'Item 1', 'quantity': 100},
@@ -16,11 +17,8 @@ inventory_data = {
 }
 
 def optimize_route(start_location, end_location):
-    # Placeholder for route optimization logic
-    # Extract features from directions here
-    features = np.array([[0]])  # Placeholder
-    optimized_route = model.predict(features)
-    return optimized_route
+    # Replace this with your real route optimization logic
+    return dummy_route_optimization(start_location, end_location)
 
 def track_cargo(cargo_id):
     # Dummy cargo tracking data
