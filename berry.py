@@ -1,7 +1,6 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
-from sklearn.linear_model import LinearRegression
 
 # Dummy model for route optimization
 def dummy_route_optimization(start_location, end_location, weather_data):
@@ -10,12 +9,15 @@ def dummy_route_optimization(start_location, end_location, weather_data):
 
 # Dummy time series model for inventory demand forecasting
 def forecast_demand(historical_data):
-    model = LinearRegression()
-    X = np.arange(len(historical_data)).reshape(-1, 1)
-    y = np.array(historical_data)
-    model.fit(X, y)
-    future_dates = np.arange(len(historical_data), len(historical_data) + 10).reshape(-1, 1)
-    forecast = model.predict(future_dates)
+    # Simple moving average as a placeholder for demand forecasting
+    if len(historical_data) < 2:
+        return historical_data
+    forecast = []
+    for i in range(len(historical_data)):
+        if i < len(historical_data) - 1:
+            forecast.append(np.mean(historical_data[max(0, i - 2):i + 1]))
+        else:
+            forecast.append(np.mean(historical_data[max(0, i - 2):i + 1]))
     return forecast
 
 # Dummy cargo tracking data
@@ -112,3 +114,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
