@@ -1,15 +1,12 @@
 import streamlit as st
 import pandas as pd
-import numpy as np
-import matplotlib.pyplot as plt
 
 # Dummy functions to simulate advanced features
 
 # AI-Powered Personal Styling
 def recommend_outfits(user_profile):
     # Dummy recommendation logic
-    recommendations = ["Stylish Jacket", "Comfortable Jeans", "Elegant Shoes"]
-    return recommendations
+    return ["Stylish Jacket", "Comfortable Jeans", "Elegant Shoes"]
 
 # Virtual Try-On Placeholder
 def virtual_try_on(item):
@@ -28,8 +25,11 @@ def forecast_trends():
 
 # Style Diary and Outfit Planning
 def style_diary(entries):
-    # Placeholder function for style diary
-    return pd.DataFrame(entries, columns=["Date", "Outfit"])
+    # Convert entries to a DataFrame
+    if entries:
+        return pd.DataFrame(entries, columns=["Date", "Outfit"])
+    else:
+        return pd.DataFrame(columns=["Date", "Outfit"])
 
 # Smart Inventory Management
 def inventory_insights():
@@ -43,7 +43,7 @@ def inventory_insights():
 
 # Interactive Fashion Communities
 def fashion_community():
-    # Placeholder for community interactions
+    # Dummy data for community interactions
     posts = [
         {"user": "Fashionista1", "post": "Check out my new summer dress!"},
         {"user": "TrendSetter", "post": "Loving the new fall collection."}
@@ -52,13 +52,12 @@ def fashion_community():
 
 # Sustainable Fashion Recommendations
 def sustainable_fashion():
-    # Dummy data for sustainable fashion
-    recommendations = ["Eco-Friendly Sneakers", "Organic Cotton T-Shirt"]
-    return recommendations
+    # Dummy recommendations
+    return ["Eco-Friendly Sneakers", "Organic Cotton T-Shirt"]
 
 # Personalized Shopping Experience
 def personalized_shopping():
-    # Placeholder for personalized shopping
+    # Dummy shopping recommendations
     return ["Discounted Winter Coats", "New Arrivals in Dresses"]
 
 # Fashion History and Education
@@ -71,7 +70,7 @@ def fashion_history():
 
 # Customizable Notifications and Alerts
 def notifications_and_alerts():
-    # Placeholder for notifications
+    # Dummy notifications
     return ["New arrivals in your favorite category!", "Exclusive discounts for premium members."]
 
 def main():
@@ -110,7 +109,7 @@ def main():
     diary_entries = st.text_area("Enter your style diary entries (date and outfit, separated by a comma):")
     if st.button("Add to Diary"):
         if diary_entries:
-            entries = [entry.split(',') for entry in diary_entries.split('\n')]
+            entries = [entry.split(',') for entry in diary_entries.strip().split('\n') if ',' in entry]
             diary_df = style_diary(entries)
             st.write(diary_df)
         else:
